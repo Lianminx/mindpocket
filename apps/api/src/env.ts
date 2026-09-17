@@ -17,6 +17,8 @@ export interface Env {
   NEXT_PUBLIC_APP_URL: string
   // Better Auth 密钥（wrangler secret）
   BETTER_AUTH_SECRET: string
+  // 私有实例首次注册仅允许此邮箱。
+  OWNER_EMAIL?: string
 }
 
 /** Hono 的泛型上下文：Bindings + 每请求注入的变量 */

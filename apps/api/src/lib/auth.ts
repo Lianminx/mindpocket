@@ -53,7 +53,11 @@ export function createAuth(env: Env, db: Database) {
     databaseHooks: {
       user: {
         create: {
-          before: async () => {
+          before: async (user) => {
+            // 避免公开部署后被陌生人抢先注册。
+            if (env.OWNER_EMAIL && user.email.toLowerCase() !== env.OWNER_EMAIL.toLowerCase()) {
+              throw new APIError("FORBIDDEN", { message: "注册已关闭" })
+            }
             const result = await db.select({ count: count() }).from(schema.user)
             const userCount = result[0]?.count || 0
             if (userCount > 0) {

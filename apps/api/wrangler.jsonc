@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "mindpocket",
+  "name": "lianmin-mindpocket",
   "main": "src/index.ts",
   "compatibility_date": "2026-06-01",
   // node:crypto (AES-GCM) 等 Node API 依赖此 flag
@@ -16,9 +16,9 @@
   "d1_databases": [
     {
       "binding": "DB",
-      "database_name": "mindpocket",
+      "database_name": "lianmin-mindpocket",
       // 部署前用 `wrangler d1 create mindpocket` 创建并回填真实 ID
-      "database_id": "00000000-0000-0000-0000-000000000000",
+      "database_id": "308a6fad-2d84-419e-aba6-9c2e0a0a5c5f",
       "migrations_dir": "db/migrations"
     }
   ],
@@ -27,20 +27,20 @@
   "vectorize": [
     {
       "binding": "VECTORIZE",
-      "index_name": "mindpocket-embeddings"
+      "index_name": "lianmin-mindpocket"
     }
   ],
   // R2：文件存储（替代 MinIO）
   "r2_buckets": [
     {
       "binding": "BUCKET",
-      "bucket_name": "mindpocket"
+      "bucket_name": "lianmin-mindpocket"
     }
   ],
   "vars": {
     // R2 公开访问域名（r2.dev 或自定义域），部署时覆盖
-    "R2_PUBLIC_URL": "",
-    "NEXT_PUBLIC_APP_URL": "http://127.0.0.1:8787"
+    "R2_PUBLIC_URL": "https://pub-df2faa8d599d41b1a4a99451c4e61d11.r2.dev",
+    "NEXT_PUBLIC_APP_URL": "https://lianmin-mindpocket.uptimeworker.workers.dev"
   },
   "observability": {
     "enabled": true
