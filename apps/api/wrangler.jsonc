@@ -1,6 +1,8 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "lianmin-mindpocket",
+  "workers_dev": false,
+  "preview_urls": false,
   "main": "src/index.ts",
   "compatibility_date": "2026-06-01",
   // node:crypto (AES-GCM) 等 Node API 依赖此 flag

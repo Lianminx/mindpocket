@@ -1,5 +1,11 @@
 # Lianmin MindPocket
 
+## 已停用（2026-09-17）
+
+lm 明确不再需要本服务。Cloudflare workers.dev 正式入口、版本预览入口和 R2 r2.dev 公共访问均已关闭；下文部署验收仅为历史记录，不代表服务仍开放。源码、账号、D1、R2、Vectorize 和 Secret 保留，未删除数据。保留存储仍可能占用免费额度。
+
+配置显式设置 `workers_dev=false`、`preview_urls=false`，避免再次部署时意外恢复公网入口。只有 lm 明确要求恢复时才重新启用；恢复附件访问还需单独启用 R2 公共访问。
+
 - 云端入口：https://lianmin-mindpocket.uptimeworker.workers.dev/login
 - Worker、D1、Vectorize、R2 均命名为 `lianmin-mindpocket`；Vectorize 为 1024 维 cosine，含 userId 元数据索引。
 - 已创建本人账号；登录邮箱和随机密码在根目录 `.env.local` JSON 文件中，已被 Git 忽略。该文件用于本地保管，不是 Next.js 环境变量配置。
@@ -10,7 +16,7 @@
 
 已启用登录、书签和内容保存；未配置收费或免费的外部模型，AI 对话及语义向量生成功能暂不可用。Vectorize 绑定存在不等于已有可用向量数据。
 
-此上游使用公开 R2 URL 展示上传附件，`lianmin-mindpocket` 的 r2.dev 访问已启用；附件链接不是账号鉴权链接。不要上传需保密的文件。Davflare 与 Artifacts 的桶仍为私有。
+此上游使用公开 R2 URL 展示上传附件；现已关闭 `lianmin-mindpocket` 的 r2.dev 访问。若日后恢复公共附件访问，附件链接不是账号鉴权链接。Davflare 与 Artifacts 的桶仍为私有。
 
 ## 更新
 
